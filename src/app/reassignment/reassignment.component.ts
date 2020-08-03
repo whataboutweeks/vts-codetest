@@ -41,6 +41,7 @@ export class ReassignmentComponent implements OnInit {
   }
 
   clearSelection(): void {
+    //Mystery bug. Camera suppress turns off after 2nd click??
     this.vehiclesComponent.vehicleGrid.api.deselectAll();
     this.camerasComponent.cameraGrid.api.deselectAll();
     this.vehiclesComponent.vehicleGrid.api.setSuppressRowClickSelection(false);
