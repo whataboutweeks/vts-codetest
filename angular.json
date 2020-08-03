@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "vts-codetest"
+    }
+  },
+  "defaultProject": "vts-codetest",
+  "cli": {
+    "analytics": "452a6679-6ac2-4fdf-a352-91f44767f31e"
+  }
 }
