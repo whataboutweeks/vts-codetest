@@ -31,7 +31,6 @@ export class NewAssignmentComponent implements OnInit {
     if(this.camerasComponent.rowSelected && this.vehiclesComponent.rowSelected) {
       this.rowsSelected = true;
     }
-
   }
 
   createAssignment(): void {

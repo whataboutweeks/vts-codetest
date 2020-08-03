@@ -20,12 +20,19 @@ export class ReassignmentComponent implements OnInit {
   @ViewChild(VehiclesComponent) private vehiclesComponent: VehiclesComponent;
   @Output() updated = new EventEmitter();
 
+  rowSelected: boolean = false;
   constructor(
     private cameraAssignmentService: CameraAssignmentService,
     private reassignService: ReassignService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  onRowsSelected(): void {
+    if(this.camerasComponent.rowSelected || this.vehiclesComponent.rowSelected) {
+      this.rowSelected = true;
+    }
   }
 
   updateAssignment(): void {
