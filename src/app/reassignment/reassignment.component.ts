@@ -37,8 +37,14 @@ export class ReassignmentComponent implements OnInit {
       this.vehiclesComponent.vehicleGrid.api.setSuppressRowClickSelection(true);
     } else {
       this.camerasComponent.cameraGrid.api.setSuppressRowClickSelection(true);
-
     }
+  }
+
+  clearSelection(): void {
+    this.vehiclesComponent.vehicleGrid.api.deselectAll();
+    this.camerasComponent.cameraGrid.api.deselectAll();
+    this.vehiclesComponent.vehicleGrid.api.setSuppressRowClickSelection(false);
+    this.camerasComponent.cameraGrid.api.setSuppressRowClickSelection(false);
   }
 
   closeModal(): void {

@@ -10,5 +10,6 @@
 </div>
 <div class="modal-button-footer">
 <button type="button" [disabled]="!rowSelected" (click)="updateAssignment()">Reassign</button>
+<button type="button" [disabled]="!rowSelected" (click)="clearSelection()">Clear</button>
 <button type="button" (click)="closeModal()">Cancel</button>
 </div>
