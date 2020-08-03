@@ -18,7 +18,7 @@ export class VehiclesComponent implements OnInit {
   vehicles: Vehicle[];
 
   columnDefs = [
-    { headerName: 'Vehicle', field: 'name', sortable: true, filter: true, checkboxSelection: true }
+    { headerName: 'Vehicle', field: 'name', sortable: true, filter: true }
   ];
   constructor(
     private vehicleService: VehicleService,

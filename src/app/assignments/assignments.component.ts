@@ -18,7 +18,7 @@ export class AssignmentsComponent implements OnInit {
 
   //Set up columns for grid
   columnDefs = [
-    { headerName: 'Vehicle', field: 'vehicle.name', sortable: true, filter: true, checkboxSelection: true },
+    { headerName: 'Vehicle', field: 'vehicle.name', sortable: true, filter: true},
     { headerName: 'Camera', field: 'camera.deviceNo', sortable: true, filter: true},
     { headerName: 'Date Created', field: 'dateCreated', sortable: true, filter: true },
   ];
@@ -40,6 +40,10 @@ export class AssignmentsComponent implements OnInit {
   }
 
   //TODO Check for buttons that require selection - is something selected ? work : disable
+  rowSelected(): boolean {
+    console.log('check that button');
+    return this.assignmentGrid.api.getSelectedNodes().length > 0;
+  }
 
   addAssignment(): void {
     //show the new assignment component and set the routing.

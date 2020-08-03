@@ -18,7 +18,7 @@ export class CamerasComponent implements OnInit {
   cameras: Camera[];
 
   columnDefs = [
-    { headerName: 'Camera Device No.', field: 'deviceNo', sortable: true, filter: true, checkboxSelection: true }
+    { headerName: 'Camera Device No.', field: 'deviceNo', sortable: true, filter: true }
   ];
   constructor(
     private cameraService: CameraService,
