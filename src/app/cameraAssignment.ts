@@ -2,6 +2,6 @@ export interface CameraAssignment {
     id: number;
     cameraId: number;
     vehicleId: number;
-    dateCreated: Date;
+    dateCreated: string;
     deleted: boolean;
 }

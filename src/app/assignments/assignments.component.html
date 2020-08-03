@@ -1,5 +1,6 @@
 <!-- List of Camer Assignments -->
-<button type="button" (click)="addAssignment()">New Assignment</button>
-<button type="button" [disabled]="!rowSelected" (click)="reassignAssignment()">Reassign</button>
-<button type="button" [disabled]="!rowSelected" (click)="removeAssignment()">Remove</button>
-<ag-grid-angular #assignmentGrid style="width: 100%; height: 500px;" class="ag-theme-alpine" [columnDefs]="columnDefs" [rowData]="assignments" rowSelection="single" (rowSelected)="rowSelect()"></ag-grid-angular>
+<div class="assignment-buttons">
+  <button type="button" [disabled]="!rowSelected" (click)="reassignAssignment()">Reassign</button>
+  <button type="button" [disabled]="!rowSelected" (click)="removeAssignment()">Remove</button>
+</div>
+<ag-grid-angular #assignmentGrid class="ag-theme-alpine grid" [columnDefs]="columnDefs" [rowData]="assignments" rowSelection="single" floatingFilter=true (rowSelected)="rowSelect()"></ag-grid-angular>

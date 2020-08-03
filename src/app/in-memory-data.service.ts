@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
+import {formatDate} from '@angular/common';
+
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-//import { Vehicle } from './vehicle';
-//import { Camera } from './camera';
-//import { CameraAssignment } from './cameraAssignment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,9 +21,9 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 3, deviceNo: 7200 }
     ],
     cameraAssignments = [
-      { id: 1, cameraId: 1, vehicleId: 2, dateCreated: new Date(), deleted: false},
-      { id: 2, cameraId: 3, vehicleId: 1, dateCreated: new Date(), deleted: false},
-      { id: 3, cameraId: 2, vehicleId: 4, dateCreated: new Date(), deleted: true}
+      { id: 1, cameraId: 1, vehicleId: 2, dateCreated: formatDate(new Date(), 'yyyy/MM/dd', 'en'), deleted: false},
+      { id: 2, cameraId: 3, vehicleId: 1, dateCreated: formatDate(new Date(), 'yyyy/MM/dd', 'en'), deleted: false},
+      { id: 3, cameraId: 2, vehicleId: 4, dateCreated: formatDate(new Date(), 'yyyy/MM/dd', 'en'), deleted: true}
     ];
     //console.log(cameraAssignments);
     return {vehicles, cameras, cameraAssignments};

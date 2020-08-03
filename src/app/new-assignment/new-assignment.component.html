@@ -1,7 +1,14 @@
+<div class="modal-topper">
 <h2>Create a New Assignment</h2>
 <p>
   Select a vehicle to assign the camera to then select the camera to assign.
 </p>
+</div>
+<div class="modal-body">
 <app-vehicles (rowClick)="onRowsSelected()"></app-vehicles>
 <app-cameras (rowClick)="onRowsSelected()"></app-cameras>
+</div>
+<div class="modal-button-footer">
 <button type="button" [disabled]="!rowsSelected" (click)="createAssignment()">Create</button>
+<button type="button" (click)="closeModal()">Cancel</button>
+</div>

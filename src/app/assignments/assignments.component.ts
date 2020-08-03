@@ -18,9 +18,9 @@ export class AssignmentsComponent implements OnInit {
 
   //Set up columns for grid
   columnDefs = [
-    { headerName: 'Vehicle', field: 'vehicle.name', sortable: true, filter: true},
-    { headerName: 'Camera', field: 'camera.deviceNo', sortable: true, filter: true},
-    { headerName: 'Date Created', field: 'dateCreated', sortable: true, filter: true },
+    { headerName: 'Vehicle', field: 'vehicle.name', sortable: true, filter: true, flex: 2},
+    { headerName: 'Camera', field: 'camera.deviceNo', sortable: true, filter: true, flex: 2},
+    { headerName: 'Date Created', field: 'dateCreated', sortable: true, flex: 3},
   ];
   //Data for the rows - each assignment
   assignments: [];
@@ -39,17 +39,16 @@ export class AssignmentsComponent implements OnInit {
     //Getting all the assignments of cameras to vehicles
     this.rowSelected = false;
     this.cameraAssignmentService.getDetailedAssignments().subscribe(assignments => this.assignments = assignments.filter(record => record.deleted == false));
+
   }
 
   //TODO Check for buttons that require selection - is something selected ? work : disable
   rowSelect(): void {
-    console.log('check that button');
     this.rowSelected = this.assignmentGrid.api.getSelectedNodes().length > 0;
   }
 
   addAssignment(): void {
     //show the new assignment component and set the routing.
-    console.log('New Assignment Started');
     this.buttonClick.emit('new');
   }
 
@@ -60,7 +59,6 @@ export class AssignmentsComponent implements OnInit {
   */
   reassignAssignment(): void {
     this.reassignService.updateAssignmentSelection(this.assignmentGrid.api.getSelectedNodes()[0].data);
-    console.log(this.assignmentGrid.api.getSelectedNodes()[0].data);
     this.buttonClick.emit('reassign');
   }
 

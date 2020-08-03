@@ -10,6 +10,7 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 export class AppComponent {
   @ViewChild(AssignmentsComponent) assignmentsComponent:AssignmentsComponent;
   modal: string = '';
+  modalActive: boolean = false;
 
   title = 'Andy Weeks - Code Test';
 
@@ -24,8 +25,10 @@ export class AppComponent {
 
   showModal(modal: string): boolean {
     if(modal === this.modal) {
+      this.modalActive = true;
       return true;
     }
+    this.modalActive = false;
     return false;
   }
 

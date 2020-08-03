@@ -1,0 +1,25 @@
+@import "../variables.scss";
+
+.assignment-buttons {
+  margin: 1em 0;
+  display: flex;
+  justify-content: flex-start;
+  width: 90%;
+  button {
+    background-color: $button-color-secondary;
+    border: 0;
+    border-radius: 2em;
+    color: $button-text-color-secondary;
+    font-size: 1.1em;
+    margin-right: 1em;
+    padding: .5em 1.5em;
+    &:last-of-type{
+      margin-right: 0;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $button-disabled-color;
+      color: $button-disabled-text-color;
+    }
+  }
+}

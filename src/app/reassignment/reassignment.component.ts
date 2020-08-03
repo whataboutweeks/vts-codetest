@@ -34,12 +34,15 @@ export class ReassignmentComponent implements OnInit {
       this.rowSelected = true;
     }
   }
+  
+  closeModal(): void {
+    this.updated.emit();
+  }
 
   updateAssignment(): void {
     //update an existing assignment
     //Needs checks if choices aren't made
     let reassignedAssignment: CameraAssignment = this.reassignService.selectedAssignment;
-    console.log(reassignedAssignment);
     if(this.camerasComponent.cameraGrid.api.getSelectedNodes().length > 0) {
       reassignedAssignment.cameraId = this.camerasComponent.cameraGrid.api.getSelectedNodes()[0].data.id;
       this.cameraAssignmentService.updateCameraAssignment(reassignedAssignment).subscribe(() => this.updated.emit());

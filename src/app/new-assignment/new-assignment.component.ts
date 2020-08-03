@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import {formatDate} from '@angular/common';
+
 //Router imports
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
@@ -33,12 +35,16 @@ export class NewAssignmentComponent implements OnInit {
     }
   }
 
+  closeModal(): void {
+    this.created.emit();
+  }
+
   createAssignment(): void {
     //create the new assignment
     //Needs disable check when both selects aren't made
     const selectedCamera = this.camerasComponent.cameraGrid.api.getSelectedNodes()[0].data;
     const selectedVehicle = this.vehiclesComponent.vehicleGrid.api.getSelectedNodes()[0].data;
-    this.cameraAssignmentService.addCameraAssignment({ id:undefined, cameraId:selectedCamera.id, vehicleId:selectedVehicle.id, dateCreated:new Date(), deleted:false } as CameraAssignment).subscribe(() => this.created.emit()); //!!Route back
+    this.cameraAssignmentService.addCameraAssignment({ id:undefined, cameraId:selectedCamera.id, vehicleId:selectedVehicle.id, dateCreated: formatDate(new Date(), 'yyyy/MM/dd', 'en'), deleted:false } as CameraAssignment).subscribe(() => this.created.emit()); //!!Route back
   }
 
 }

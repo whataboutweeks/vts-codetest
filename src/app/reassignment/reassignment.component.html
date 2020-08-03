@@ -1,7 +1,14 @@
-<h2>Ressign a Camera or Vehicle</h2>
-<p>
-  Please select a camera to reassign it to the vehicle or select a vehicle to reassign it to the camera.
-</p>
-<app-vehicles (rowClick)="onRowsSelected()"></app-vehicles>
-<app-cameras (rowClick)="onRowsSelected()"></app-cameras> <!-- [hidden]="!vehiclesComponent.rowSelected" -->
+<div class="modal-topper">
+  <h2>Ressign a Camera or Vehicle</h2>
+  <p>
+    Please select a camera to reassign it to the vehicle or select a vehicle to reassign it to the camera.
+  </p>
+</div>
+<div class="modal-body">
+  <app-vehicles (rowClick)="onRowsSelected()"></app-vehicles>
+  <app-cameras (rowClick)="onRowsSelected()"></app-cameras> <!-- [hidden]="!vehiclesComponent.rowSelected" -->
+</div>
+<div class="modal-button-footer">
 <button type="button" [disabled]="!rowSelected" (click)="updateAssignment()">Reassign</button>
+<button type="button" (click)="closeModal()">Cancel</button>
+</div>
