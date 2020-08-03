@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 //import ag Grid needs
 import { AgGridAngular } from 'ag-grid-angular';
 
@@ -14,8 +14,10 @@ import { CameraAssignmentService } from '../cameraAssignment.service';
 })
 export class VehiclesComponent implements OnInit {
   @ViewChild('vehicleGrid') vehicleGrid: AgGridAngular;
+  @Output() rowClick = new EventEmitter();
 
   vehicles: Vehicle[];
+  rowSelected: boolean = false;
 
   columnDefs = [
     { headerName: 'Vehicle', field: 'name', sortable: true, filter: true }
@@ -27,6 +29,12 @@ export class VehiclesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUnassignedVehicles();
+  }
+
+  rowSelect(): void {
+    console.log('check that button');
+    this.rowSelected = this.vehicleGrid.api.getSelectedNodes().length > 0;
+    this.rowClick.emit();
   }
 
   getVehicles(): void {

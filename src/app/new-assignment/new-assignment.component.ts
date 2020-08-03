@@ -18,12 +18,20 @@ export class NewAssignmentComponent implements OnInit {
   @ViewChild(CamerasComponent) private camerasComponent: CamerasComponent;
   @ViewChild(VehiclesComponent) private vehiclesComponent: VehiclesComponent;
   @Output() created = new EventEmitter();
-  ;
+
+  rowsSelected: boolean = false;
   constructor(
     private cameraAssignmentService: CameraAssignmentService
   ) { }
 
   ngOnInit(): void {
+  }
+
+  onRowsSelected(): void {
+    if(this.camerasComponent.rowSelected && this.vehiclesComponent.rowSelected) {
+      this.rowsSelected = true;
+    }
+
   }
 
   createAssignment(): void {

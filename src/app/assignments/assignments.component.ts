@@ -24,6 +24,7 @@ export class AssignmentsComponent implements OnInit {
   ];
   //Data for the rows - each assignment
   assignments: [];
+  rowSelected: boolean = false;
 
   constructor(
     private cameraAssignmentService: CameraAssignmentService,
@@ -36,13 +37,14 @@ export class AssignmentsComponent implements OnInit {
 
   getAssignments(): void {
     //Getting all the assignments of cameras to vehicles
+    this.rowSelected = false;
     this.cameraAssignmentService.getDetailedAssignments().subscribe(assignments => this.assignments = assignments.filter(record => record.deleted == false));
   }
 
   //TODO Check for buttons that require selection - is something selected ? work : disable
-  rowSelected(): boolean {
+  rowSelect(): void {
     console.log('check that button');
-    return this.assignmentGrid.api.getSelectedNodes().length > 0;
+    this.rowSelected = this.assignmentGrid.api.getSelectedNodes().length > 0;
   }
 
   addAssignment(): void {

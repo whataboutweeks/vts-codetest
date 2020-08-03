@@ -48,7 +48,6 @@ export class CameraAssignmentService {
       switchMap(assignments => {
         const vehicleIds = _.uniq(assignments.map(assignment => assignment.vehicleId));
         const cameraIds = _.uniq(assignments.map(assignment => assignment.cameraId));
-        console.log(vehicleIds);
         //step3: send back all those arrays to join into the assignment object
         return combineLatest(
           of(assignments),
